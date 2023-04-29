@@ -6,10 +6,140 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fênix Bookstore</title>
+    <link rel="shortcut icon" href="img/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
+    <!-- Modelos de livros na lista e no carrinho -->
+    <div class="models">
+        <!-- Livros na lista -->
+        <div class="book-item">
+            <a href="">
+                <div class="book-item--img"><img src="" alt=""></div>
+                <div class="book-item--add">+</div>
+            </a>
 
+            <div class="book-item--price">R$ --</div>
+            <div class="book-item--name">--</div>
+            <div class="book-item--author">--</div>
+            <input type="text" class="book-item--id">
+        </div>
+
+        <!-- Livros no carrinho -->
+        <div class="cart--item">
+            <img src="" alt="">
+            <div class="cart--item-nome">--</div>
+            <div class="cart--item--qtarea">
+                <button class="cart--item-qtmenos">-</button>
+                <div class="cart--item-qt">1</div>
+                <button class="cart--item-qtmais">+</button>
+            </div>
+        </div>
+    </div>
+
+    <header>
+        <h1>Fênix Bookstore</h1>
+        <!-- Menu que aparecera no mobile -->
+        <div class="menu-openner"><span>0</span>&#128722;</div>
+    </header>
+
+    <!-- Contéudo principal -->
+    <main>
+        <h2>Romance</h2>
+        <div class="romance-area"></div>
+
+        <h2>Fantasia</h2>
+        <div class="fantasia-area"></div>
+
+        <h2>Infantis</h2>
+        <div class="infatis-area"></div>
+
+        <h2>Idiomas</h2>
+        <div class="idiomas-area"></div>
+
+        <h2>HQs e Mangás</h2>
+        <div class="hqs-area"></div>
+
+        <h2>Religiâo e espiritualidade</h2>
+        <div class="espiritualidade-area"></div>
+
+        <h2>Auto ajuda</h2>
+        <div class="auto-ajuda-area"></div>
+
+        <footer>
+            <p>Copyrights 2023 by &#169; <a href="https://github.com/luvsscorpius" target="_blank">and</a></p>
+        </footer>
+    </main>
+
+    <!-- Aside do carrinho -->
+    <aside>
+        <div class="cart--area">
+            <div class="menu-closer">❌</div>
+            <h1>Seus Livros</h1>
+            <div class="cart"></div>
+            <div class="cart--details">
+
+                <div class="cart--totalitem subtotal">
+                    <span>Subtotal</span>
+                    <span>R$ --</span>
+                </div>
+
+                <div class="cart--totalitem desconto">
+                    <span>Desconto</span>
+                    <span>R$ --</span>
+                </div>
+
+                <div class="cart--totalitem total">
+                    <span>Total</span>
+                    <span>R$ --</span>
+                </div>
+
+                <div class="cart--finalizar">Finalizar a compra</div>
+            </div>
+        </div>
+    </aside>
+
+    <!-- Janela modal .booksWindowArea -->
+    <div class="booksWindowArea">
+        <div class="booksWindowBody">
+            <div class="booksInfo--cancelMobileButton">Voltar</div>
+            <div class="booksBig">
+                <img src="" alt="">
+            </div>
+
+            <!-- Books Info -->
+            <div class="booksInfo">
+                <h1>--</h1>
+                <div class="booksInfo--id"></div>
+                <div class="booksInfo--author">--</div>
+                <div class="booksInfo--desc">--</div>
+                <div class="booksInfo--sizearea">
+                    <div class="booksInfo-sector">Formato</div>
+                    <div class="booksInfo-formats">
+                        <div data-key="capa-dura" class="booksInfo-format selected">CAPA DURA</div>
+                        <div data-key="capa-comum" class="booksInfo-format">CAPA COMUM</div>
+                        <div data-key="ebook" class="booksInfo-format">EBOOK</div>
+                    </div>
+                </div>
+
+                <!-- Books Preco -->
+                <div class="booksInfo--pricearea">
+                    <div class="booksInfo--sector">Preço</div>
+                    <div class="booksInfo--price">
+                        <div class="booksInfo--actualPrice">R$ --</div>
+                        <div class="booksInfo-qtarea">
+                            <button class="booksInfo--qtmenos">-</button>
+                            <div class="booksInfo--qt">1</div>
+                            <button class="booksInfo--qtmais">+</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="booksInfo--addButton">Adicionar ao carrinho</div>
+                <div class="booksInfo--cancelButton">Cancelar</div>
+            </div>
+        </div>
+    </div>
 </body>
 
 </html>
