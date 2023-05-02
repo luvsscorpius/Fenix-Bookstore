@@ -89,5 +89,14 @@ let produtosJson = [
     { id: 68, type: 'espiritualidade', name: 'O ceticismo da fé', img: 'img/books/espiritualidade/o-ceticismo-da-fe.jpg', price: [89.00, 70.10, 24.99], formats: ['Capa Dura', 'Capa comum', 'Ebook'], author: 'Rodrigo Silva', description: 'DEUS EXISTE OU SERIA A FÉ RELIGIOSA APENAS UM DELÍRIO UNIVERSAL?Em O ceticismo da fé, o teólogo e arqueólogo Rodrigo Silva traz um estudo profundo sobre a “existência” de Deus. ' },
     { id: 69, type: 'espiritualidade', name: 'Um novo mundo', img: 'img/books/espiritualidade/um-novo-mundo.jpg', price: [45.00, 30.99, 19.70], formats: ['Capa Dura', 'Capa comum', 'Ebook'], author: 'Eckhart Tolle', description: 'Mais do que em qualquer outra época de sua história, a hu¬ma¬nidade tem hoje a chance de criar um mundo novo – mais evoluído espiritualmente, mais pleno de amor e sanidade. Para Eckhart Tolle, estamos vivendo um momento único e maravilhoso: o do despertar de uma nova consciência.' },
 
+    {id: 70, type: 'autoajuda', name: 'As coisas que você ve quando desacelera', img: 'img/books/autoAjuda/as-coisas-que-voce-desacelera.jpg', price: [], formats: [], author: '', description: ''},
+    {id: 71, type: 'autoajuda', name: 'Meu livro da consciência', img: 'img/books/autoAjuda/meu-livro-da-consciencia.jpg', price: [], formats: [], author: '', description: ''},
+    {id: 72, type: 'autoajuda', name: 'O cavaleiro na armadura', img: 'img/books/autoAjuda/o-cavaleiro-na-armadura.jpg', price: [], formats: [], author: '', description: ''},
+    {id: 73, type: 'autoajuda', name: 'Seja o amor da sua vida', img: 'img/books/autoAjuda/seja-o-amor-da-sua-vida.jpg', price: [], formats: [], author: '', description: ''},
+    {id: 74, type: 'autoajuda', name: 'Textos crueis para serem lidos rapidamente', img: '', price: [], formats: [], author: '', description: ''},
+    {id: 75, type: 'autoajuda', name: 'Todas as coisas que eu te escreveria se pudesse', img: '', price: [], formats: [], author: '', description: ''},
+    {id: 76, type: 'autoajuda', name: 'Um compromisso por dia', img: '', price: [], formats: [], author: '', description: ''},
+    {id: 77, type: 'autoajuda', name: 'Um poema para cada dia em que não te vi', img: '', price: [], formats: [], author: '', description: ''},
+
 
 ]   
