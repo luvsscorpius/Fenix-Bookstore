@@ -319,7 +319,7 @@ a {
 }
 
 .booksWindowBody {
-    width: 900px;
+    width: 1000px;
     background-color: #fff;
     border-radius: 10px;
     box-shadow: 0px 0px 15px #999;
@@ -354,12 +354,30 @@ a {
 
 .booksInfo h1 {
     margin-top: 50px;
+    color: #000;
+    margin-right: 50px;
 }
 
-.booksInfo .booksInfo--author .booksInfo--desc {
+.booksInfo  {
     font-size: 15px;
     color: #999;
     margin-top: 10px;
+    font-family: 'Lato', Helvetica, Arial;
+}
+
+.booksInfo--author {
+    font-size: 15px;
+    color: #999;
+    margin-top: 10px;
+    font-family: 'Lato', Helvetica, Arial;
+}
+
+.booksInfo--desc {
+    font-size: 20px;
+    color: #999;
+    margin-bottom: 20px;
+    margin-top: 10px;
+    margin-right: 50px;
     font-family: 'Lato', Helvetica, Arial;
 }
 
