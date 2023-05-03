@@ -1,3 +1,16 @@
+// variaveis globais
+
+let modalKey = 0
+let cart = []
+
+let qtProduto = 1
+let qtRomance = 1
+let qtFantasia = 1
+let qtInfantis = 1
+let qtIdiomas = 1
+let qtHqsMangas = 1
+let qtEspiritualidade = 1
+let qtAutoAjuda = 1
 
 //funcoes auxiliares e uteis
 const seleciona = (elemento) => document.querySelector(elemento)
@@ -34,6 +47,37 @@ const botoesFechar = () => {
     selecionaTodos('.booksInfo--cancelMobileButton, .booksInfo--cancelButton').forEach((item) => {
         item.addEventListener('click', fecharModal)
     })
+}
+
+// Função para mudar a quantidade
+const mudarQuantidade = () => {
+    // Ações nos botões + e - da janela modal
+    seleciona('.booksInfo--qtmais').addEventListener('click', () => {
+        qtProduto ++
+        seleciona('.booksInfo--qt').innerHTML = qtProduto
+    })
+    
+    seleciona('.booksInfo--qtmenos').addEventListener('click', () =>{
+        if (qtProduto > 1){
+            qtProduto--
+            seleciona('.booksInfo--qt').innerHTML = qtProduto
+        }
+    })
+}
+
+// Função para pegar a chave do item que voce está clicando
+const pegarKey = (e) => {
+    let key = e.target.closest('.book-item').getAttribute('data-key')
+    console.log('Produto clicado: ' + key)
+    console.log(produtosJson[key])
+
+    // Garantir que a quantidade de produtos seja 1
+    qtProduto = 1
+
+    //Manter a informação de qual produto foi clicado
+    modalKey = key
+
+    return key
 }
 
 // funcao para preencher os dados dos livros na main
@@ -85,6 +129,9 @@ produtosJson.map((item, index) => {
 
             // funcao para fechar a janela modal quando clicar em algum dos botoes de fechar
             botoesFechar()
+
+            // funcao para pegar a chave
+            let chave = pegarKey(e)
         })
     }
 
@@ -100,6 +147,7 @@ produtosJson.map((item, index) => {
             abrirModal()
             preencherDadosModal(item)
             botoesFechar()
+            let chave = pegarKey(e)
         })
     }
 
@@ -115,6 +163,7 @@ produtosJson.map((item, index) => {
             abrirModal()
             preencherDadosModal(item)
             botoesFechar()
+            let chave = pegarKey(e)
         })
     }
 
@@ -130,6 +179,7 @@ produtosJson.map((item, index) => {
             abrirModal()
             preencherDadosModal(item)
             botoesFechar()
+            let chave = pegarKey(e)
         })
     }
 
@@ -145,6 +195,7 @@ produtosJson.map((item, index) => {
             abrirModal()
             preencherDadosModal(item)
             botoesFechar()
+            let chave = pegarKey(e)
         })
     }
 
@@ -160,6 +211,7 @@ produtosJson.map((item, index) => {
             abrirModal()
             preencherDadosModal(item)
             botoesFechar()
+            let chave = pegarKey(e)
         })
     }
 
@@ -175,6 +227,9 @@ produtosJson.map((item, index) => {
             abrirModal()
             preencherDadosModal(item)
             botoesFechar()
+            let chave = pegarKey(e)
         })
     }
 })
+
+mudarQuantidade()
