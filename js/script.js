@@ -80,6 +80,28 @@ const pegarKey = (e) => {
     return key
 }
 
+// Função para preencher os tamanhos
+const preencherTamanhos = (key) => {
+    // ações no tamanho 
+    seleciona('.booksInfo-format.selected').classList.remove('selected')
+
+    selecionaTodos('.booksInfo-format').forEach((size, sizeIndex) => {
+        (sizeIndex == 2) ? size.classList.add('selected') : ''
+    })
+}
+
+const mudaTamanhos = (key) => {
+    // acões nos botões de tamanho e altera os preços
+    selecionaTodos('.booksInfo-format').forEach((size, sizeIndex) => {
+        size.addEventListener('click', (e) => {
+            seleciona('.booksInfo-format.selected').classList.remove('selected')
+            size.classList.add('selected')
+
+            seleciona('.booksInfo--actualPrice').innerHTML = formatoReal(produtosJson[key].price[sizeIndex])
+        })
+    })
+}
+
 // funcao para preencher os dados dos livros na main
 const preencherDadosDoItem = (itemElement, item, index) => {
     itemElement.setAttribute('data-key', index)
@@ -132,6 +154,12 @@ produtosJson.map((item, index) => {
 
             // funcao para pegar a chave
             let chave = pegarKey(e)
+
+            // preenche os tamanhos
+            preencherTamanhos(item.id)
+
+            preencherTamanhos(item.id)
+            mudaTamanhos(item.id)
         })
     }
 
@@ -148,6 +176,9 @@ produtosJson.map((item, index) => {
             preencherDadosModal(item)
             botoesFechar()
             let chave = pegarKey(e)
+            preencherTamanhos(item.id)
+            preencherTamanhos(item.id)
+            mudaTamanhos(item.id)
         })
     }
 
@@ -164,6 +195,8 @@ produtosJson.map((item, index) => {
             preencherDadosModal(item)
             botoesFechar()
             let chave = pegarKey(e)
+            preencherTamanhos(item.id)
+            mudaTamanhos(item.id)
         })
     }
 
@@ -180,6 +213,8 @@ produtosJson.map((item, index) => {
             preencherDadosModal(item)
             botoesFechar()
             let chave = pegarKey(e)
+            preencherTamanhos(item.id)
+            mudaTamanhos(item.id)
         })
     }
 
@@ -196,6 +231,8 @@ produtosJson.map((item, index) => {
             preencherDadosModal(item)
             botoesFechar()
             let chave = pegarKey(e)
+            preencherTamanhos(item.id)
+            mudaTamanhos(item.id)
         })
     }
 
@@ -212,6 +249,8 @@ produtosJson.map((item, index) => {
             preencherDadosModal(item)
             botoesFechar()
             let chave = pegarKey(e)
+            preencherTamanhos(item.id)
+            mudaTamanhos(item.id)
         })
     }
 
@@ -228,6 +267,8 @@ produtosJson.map((item, index) => {
             preencherDadosModal(item)
             botoesFechar()
             let chave = pegarKey(e)
+            preencherTamanhos(item.id)
+            mudaTamanhos(item.id)
         })
     }
 })
