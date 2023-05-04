@@ -102,6 +102,72 @@ const mudaTamanhos = (key) => {
     })
 }
 
+const adicionarNoCarrinho = () => {
+    seleciona('.booksInfo--addButton').addEventListener('click', () => {
+        console.log('Produto adicionado ao carrinho')
+
+        // pegar dados da janela modal atual
+        // Qual produto?? pegue com a key modalKey
+
+        if (modalKey == null) {alert('Modal Nula')}
+
+        // tamanho
+        let format = seleciona('.booksInfo-format.selected').getAttribute('data-key')
+        console.log('Formato ' + format)
+
+        // Quantidade
+        console.log('Quantidade de produtos: ' + qtProduto)
+
+        //preco 
+        let price = seleciona('.booksInfo--actualPrice').innerHTML.replace('R$&nbsp;', '')
+        console.log(price)
+
+        // precisamos criar um identificador agora que junte id e tamanho
+        let identificador = produtosJson[modalKey].id + 't' + format
+
+        // antes de adicionar precisamos verificar se ja tem aquele codigo e tamanho
+        let key = cart.findIndex((item) => item.identificador == identificador)
+        console.log(key)
+
+        if (key > -1) {
+            // se encontrar aumente
+            cart[key].qt += qtProduto
+        } else {
+            // adicionar produto no carrinho
+            let produto = {
+                identificador,
+                id: produtosJson[modalKey].id,
+                format,
+                qt: qtProduto, 
+                price: parseFloat(price)
+            }
+            cart.push(produto)
+            console.log(produto)
+            console.log('Sub total R$ ' + (produto.qt + produto.price).toFixed(2))
+        }
+        fecharModal()
+        abrirCarrinho()
+    })
+}
+
+// Função para abrir o carrinho
+const abrirCarrinho = () => {
+    console.log('Quantidade de itens do carrinho ' + cart.length)
+    if (cart.length > 0) {
+        //mostrar carrinho
+        seleciona('aside').classList.add('show')
+        seleciona('header').style.display = 'flex'
+    }
+
+    // exibir aside do carrinho no modo mobile
+    seleciona('.menu-openner').addEventListener('click', () => {
+        if(cart.length > 0) {
+            seleciona('aside').classList.add('show')
+            seleciona('aside').style.left = '0'
+        }
+    })
+}
+
 // funcao para preencher os dados dos livros na main
 const preencherDadosDoItem = (itemElement, item, index) => {
     itemElement.setAttribute('data-key', index)
@@ -274,3 +340,4 @@ produtosJson.map((item, index) => {
 })
 
 mudarQuantidade()
+adicionarNoCarrinho()
