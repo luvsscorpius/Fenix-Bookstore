@@ -108,8 +108,8 @@ body {
 }
 
 .cart--item img {
-    width: 40px;
-    height: 40px;
+    width: 60x;
+    height: 80px;
     margin-right: 20px;
 }
 
@@ -145,6 +145,9 @@ body {
 .cart--totalitem {
     padding: 15px 0;
     border-top: 1px solid var(--header-footer);
+    display: flex;
+    justify-content: space-between;
+    font-size: 15px;
 }
 
 .cart--totalitem span:first-child {
@@ -205,7 +208,7 @@ header h1 {
     color: #fff;
 }
 
-.menu-colser {
+.menu-closer {
     width: 32px;
     height: 32px;
     display: none;
@@ -382,11 +385,11 @@ a {
 }
 
 .booksInfo--sector {
-    color: #ccc;
     text-transform: uppercase;
     font-size: 14px;
     margin-top: 30px;
     margin-bottom: 10px;
+    color: #000;
 }
 
 .booksInfo-formats {
@@ -426,6 +429,7 @@ a {
 .booksInfo--price {
     display: flex;
     align-items: center;
+    color: #000;
 }
 
 .booksInfo--actualPrice {

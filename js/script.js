@@ -147,6 +147,93 @@ const adicionarNoCarrinho = () => {
         }
         fecharModal()
         abrirCarrinho()
+        atualizarCarrinho()
+    })
+}
+
+// função para preencher no carrinho (atualizar)
+const atualizarCarrinho = () => {
+    // exibe a quantidade de itens no carrinho
+    seleciona('.menu-openner span').innerHTML = cart.length
+
+    if(cart.length > 0) {
+        seleciona('aside').classList.add('show')
+
+        // zerar o cart 
+        seleciona('.cart').innerHTML = ''
+    
+        // variaveis antes do for
+        let subtotal = 0
+        let total = 0
+        let desconto = 0
+    
+        // preencher os itens no carrinho e calcular subtotal
+        for (let i in cart) {
+            // use o find para pegar o item por id
+            let produtoItem = produtosJson.find((item) => item.id == cart[i].id)
+            console.log(produtoItem)
+
+            //EM CADA ITEM pegar o subtotal
+            subtotal += cart[i].price * cart[i].qt
+            
+            // fazer o clone, exibir produtos na tela (carrinho) e preencher as informações
+            let cartItem = seleciona('.models .cart--item').cloneNode(true)
+            seleciona('.cart').append(cartItem)
+
+            let produtoFormatName = cart[i].format
+            let produtoName = `${produtoItem.name} (${produtoFormatName})`
+
+            //preencher as informações no carrinho
+            cartItem.querySelector('img').src = produtoItem.img
+            cartItem.querySelector('.cart--item-nome').innerHTML = produtoName
+            cartItem.querySelector('.cart--item-qt').innerHTML = cart[i].qt
+
+            // botões + e -
+
+            cartItem.querySelector('.cart--item-qtmais').addEventListener('click', () => {
+                console.log('Clicou no botão de aumentar')
+                cart[i].qt++
+                atualizarCarrinho()
+            })
+
+            cartItem.querySelector('.cart--item-qtmenos').addEventListener('click', () => {
+                console.log('Clicou no botão de diminuir')
+                if (cart[i].qt > 1) {
+                    cart[i].qt--
+                } else {
+                    // remover se for zero
+                    cart.splice(i, 1)
+                }
+                (cart.length < 1) ? seleciona('header').style.display = 'flex' : ''
+                atualizarCarrinho()
+            })
+            seleciona('.cart').append(cartItem)
+
+        }
+        desconto = subtotal * 0
+        total = subtotal - desconto
+
+        // exibir na tela os resultados
+        seleciona('.subtotal span:last-child').innerHTML = formatoReal(subtotal)
+        seleciona('.total span:last-child').innerHTML = formatoReal(total)
+        seleciona('.desconto span:last-child').innerHTML = formatoReal(desconto)
+    } else {
+        // ocultar o carrinho
+        seleciona('aside').classList.remove('show')
+        seleciona('aside').style.left = '100vw'
+    }
+}
+
+// função para finalizar a compra
+const finalizarCompra = () => {
+    // fechar o carrinho em mobile
+    seleciona('.cart--finalizar').addEventListener('click', () => {
+        seleciona('aside').classList.remove('show')
+        console.log('Compra finalizada')
+        seleciona('aside').style.left = '100vw'
+        seleciona('header').style.display = 'flex'
+        cart = []
+        seleciona('.menu-openner span').innerHTML = cart.length
     })
 }
 
@@ -165,6 +252,14 @@ const abrirCarrinho = () => {
             seleciona('aside').classList.add('show')
             seleciona('aside').style.left = '0'
         }
+    })
+}
+
+const fecharCarrinho = () => {
+    // fechar carrinho com o x (span)
+    seleciona('.menu-closer').addEventListener('click', () => {
+        seleciona('aside').style.left = '100vw'
+        seleciona('header').style.display = 'flex'
     })
 }
 
@@ -341,3 +436,6 @@ produtosJson.map((item, index) => {
 
 mudarQuantidade()
 adicionarNoCarrinho()
+finalizarCompra()
+fecharCarrinho()
+atualizarCarrinho()

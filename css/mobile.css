@@ -1,0 +1,120 @@
+body {
+    flex-direction: column;
+}
+
+.romance-area {
+    grid-template-columns: repeat(1, 1fr);
+    display: block;
+}
+
+.fantasia-area {
+    grid-template-columns: repeat(1, 1fr);
+    display: block;
+}
+
+.infatis-area {
+    grid-template-columns: repeat(1, 1fr);
+    display: block;
+}
+
+.idiomas-area {
+    grid-template-columns: repeat(1, 1fr);
+    display: block;
+}
+
+.hqs-area {
+    grid-template-columns: repeat(1, 1fr);
+    display: block;
+}
+
+.espiritualidade-area {
+    grid-template-columns: repeat(1, 1fr);
+    display: block;
+}
+
+.auto-ajuda-area {
+    grid-template-columns: repeat(1, 1fr);
+    display: block;
+}
+
+header {
+    display: flex;
+}
+
+header h1 {
+    font-size: 1.5rem;
+}
+
+aside {
+    width: auto;
+    position: fixed;
+    left: 100vw;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    transition: all ease .2s;
+}
+
+aside.show {
+    width: auto;
+}
+
+.cart-area {
+    width: 100vw;
+}
+
+.menu-closer {
+    display: block;
+}
+
+.booksWindowArea {
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.booksWindowBody {
+    width: 100vw;
+    display: block;
+    padding: 20px;
+    border-radius: 0;
+    box-shadow: none;
+    margin: 0;
+}
+
+.booksBig img {
+    width: 75%;
+    height: auto;
+}
+
+.booksInfo h1 {
+    margin-top: 28px;
+}
+
+.booksInfo--qtarea {
+    height: 60px;
+}
+
+.booksInfo--qtarea button {
+    font-size: 25px;
+    padding: 0px 25px;
+}
+
+.booksInfo--qt {
+    line-height: 60px;
+    font-size: 20px;
+}
+
+.booksInfo--addButton {
+    font-size: 20px;
+    display: block;
+    text-align: center;
+    margin: 30px auto;
+}
+
+.booksInfo--cancelButton {
+    display: none;
+}
+
+.booksInfo--cancelMobileButton {
+    display: block;
+}
