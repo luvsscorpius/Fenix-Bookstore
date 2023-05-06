@@ -31,7 +31,7 @@ const formatoMonetario = (valor) => {
 const abrirModal = () => {
     seleciona('.booksWindowArea').style.opacity = 0
     seleciona('.booksWindowArea').style.display = 'flex'
-    setTimeout(() => { seleciona('.booksWindowArea').style.opacity = 1}, 150)
+    setTimeout(() => { seleciona('.booksWindowArea').style.opacity = 1 }, 150)
     // set timeout foi usado para dar animaç~çao na janela modal
 }
 
@@ -53,12 +53,12 @@ const botoesFechar = () => {
 const mudarQuantidade = () => {
     // Ações nos botões + e - da janela modal
     seleciona('.booksInfo--qtmais').addEventListener('click', () => {
-        qtProduto ++
+        qtProduto++
         seleciona('.booksInfo--qt').innerHTML = qtProduto
     })
-    
-    seleciona('.booksInfo--qtmenos').addEventListener('click', () =>{
-        if (qtProduto > 1){
+
+    seleciona('.booksInfo--qtmenos').addEventListener('click', () => {
+        if (qtProduto > 1) {
             qtProduto--
             seleciona('.booksInfo--qt').innerHTML = qtProduto
         }
@@ -109,7 +109,7 @@ const adicionarNoCarrinho = () => {
         // pegar dados da janela modal atual
         // Qual produto?? pegue com a key modalKey
 
-        if (modalKey == null) {alert('Modal Nula')}
+        if (modalKey == null) { alert('Modal Nula') }
 
         // tamanho
         let format = seleciona('.booksInfo-format.selected').getAttribute('data-key')
@@ -138,7 +138,7 @@ const adicionarNoCarrinho = () => {
                 identificador,
                 id: produtosJson[modalKey].id,
                 format,
-                qt: qtProduto, 
+                qt: qtProduto,
                 price: parseFloat(price)
             }
             cart.push(produto)
@@ -156,17 +156,17 @@ const atualizarCarrinho = () => {
     // exibe a quantidade de itens no carrinho
     seleciona('.menu-openner span').innerHTML = cart.length
 
-    if(cart.length > 0) {
+    if (cart.length > 0) {
         seleciona('aside').classList.add('show')
 
         // zerar o cart 
         seleciona('.cart').innerHTML = ''
-    
+
         // variaveis antes do for
         let subtotal = 0
         let total = 0
         let desconto = 0
-    
+
         // preencher os itens no carrinho e calcular subtotal
         for (let i in cart) {
             // use o find para pegar o item por id
@@ -175,7 +175,7 @@ const atualizarCarrinho = () => {
 
             //EM CADA ITEM pegar o subtotal
             subtotal += cart[i].price * cart[i].qt
-            
+
             // fazer o clone, exibir produtos na tela (carrinho) e preencher as informações
             let cartItem = seleciona('.models .cart--item').cloneNode(true)
             seleciona('.cart').append(cartItem)
@@ -248,7 +248,7 @@ const abrirCarrinho = () => {
 
     // exibir aside do carrinho no modo mobile
     seleciona('.menu-openner').addEventListener('click', () => {
-        if(cart.length > 0) {
+        if (cart.length > 0) {
             seleciona('aside').classList.add('show')
             seleciona('aside').style.left = '0'
         }
@@ -275,7 +275,7 @@ const preencherDadosDoItem = (itemElement, item, index) => {
 
 // funcao para preencher os dados no modal
 const preencherDadosModal = (item) => {
-    let id = seleciona('.book-item--id').innerHTML = item.id -1
+    let id = seleciona('.book-item--id').innerHTML = item.id - 1
     seleciona('.booksBig img').src = item.img
     seleciona('.booksInfo h1').innerHTML = item.name
     seleciona('.booksInfo--author').innerHTML = item.author
@@ -319,8 +319,11 @@ produtosJson.map((item, index) => {
             // preenche os tamanhos
             preencherTamanhos(item.id)
 
-            preencherTamanhos(item.id)
+            //muda os tamanhos
             mudaTamanhos(item.id)
+
+            seleciona('.booksInfo--qt').innerHTML = qtRomance // definir a quantidade de produtos na modal como sempre 1 toda vez que abrir
+            console.log(qtRomance)
         })
     }
 
@@ -340,6 +343,7 @@ produtosJson.map((item, index) => {
             preencherTamanhos(item.id)
             preencherTamanhos(item.id)
             mudaTamanhos(item.id)
+            seleciona('.booksInfo--qt').innerHTML = qtFantasia
         })
     }
 
@@ -358,6 +362,7 @@ produtosJson.map((item, index) => {
             let chave = pegarKey(e)
             preencherTamanhos(item.id)
             mudaTamanhos(item.id)
+            seleciona('.booksInfo--qt').innerHTML = qtInfantis
         })
     }
 
@@ -365,7 +370,7 @@ produtosJson.map((item, index) => {
         seleciona('.idiomas-area').append(idiomasItem)
 
         preencherDadosDoItem(idiomasItem, item, index)
-        
+
         idiomasItem.querySelector('.book-item a').addEventListener('click', (e) => {
             e.preventDefault()
             console.log('Clicou em um livro da área de idiomas')
@@ -376,6 +381,7 @@ produtosJson.map((item, index) => {
             let chave = pegarKey(e)
             preencherTamanhos(item.id)
             mudaTamanhos(item.id)
+            seleciona('.booksInfo--qt').innerHTML = qtIdiomas
         })
     }
 
@@ -394,6 +400,7 @@ produtosJson.map((item, index) => {
             let chave = pegarKey(e)
             preencherTamanhos(item.id)
             mudaTamanhos(item.id)
+            seleciona('.booksInfo--qt').innerHTML = qtHqsMangas
         })
     }
 
@@ -412,6 +419,7 @@ produtosJson.map((item, index) => {
             let chave = pegarKey(e)
             preencherTamanhos(item.id)
             mudaTamanhos(item.id)
+            seleciona('.booksInfo--qt').innerHTML = qtEspiritualidade
         })
     }
 
@@ -430,6 +438,7 @@ produtosJson.map((item, index) => {
             let chave = pegarKey(e)
             preencherTamanhos(item.id)
             mudaTamanhos(item.id)
+            seleciona('.booksInfo--qt').innerHTML = qtAutoAjuda
         })
     }
 })

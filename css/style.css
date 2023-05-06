@@ -3,7 +3,7 @@
 :root {
     --bg-color: #eee;
     --header-footer: #579D7D;
-    --aside: #67c29975;
+    --aside: #a2b9c2;
 }
 
 * {
@@ -361,7 +361,7 @@ a {
     margin-right: 50px;
 }
 
-.booksInfo  {
+.booksInfo {
     font-size: 15px;
     color: #999;
     margin-top: 10px;
@@ -455,7 +455,7 @@ a {
 
 .booksInfo--qt {
     line-height: 30px;
-    font-size: 12px;
+    font-size: 15px;
     font-weight: bold;
     padding: 0px 5px;
     color: #000;
